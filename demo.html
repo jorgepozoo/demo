@@ -1,13 +1,44 @@
-<!DOCTYPE HTML>
-<lang type="en">
-hturtk'
- 
-<html>
-<head>
- <title>jjihjhd</title>
-</head>
-<body>
-<p>jhfilhgvjb</p>
+#include <iostream>
 
-</body>
-</html>
+using namespace std;
+int getInteger();
+int main() {
+	int myInt;
+	myInt = getInteger();
+
+	cout << "you entered: ";
+	cout << myInt;
+	return 0;
+}
+
+int getInteger() {
+	int iVariable = 0;
+	bool goodInput = false; // assume the input is terrible
+	do
+	{
+		// get the value
+		cout << "Enter an integer: ";
+		cin >> iVariable;
+		// see if that worked.
+		// clean up the stream (assume the stream is bad)
+		goodInput = !cin.fail();
+		if (!goodInput) {
+			cin.clear();
+			cin.ignore(256, '\n');
+		}
+	} while (!goodInput);
+	return iVariable;
+}
+/*
+do {
+	cin >> i;
+	if (cin.fail()) {
+		cin.clear();
+		cin.ignore(256, '\n');
+		bSucceed = false;
+	}
+	else {
+		bSucceed = true;
+	}
+} while (!bSucceed);
+*/
